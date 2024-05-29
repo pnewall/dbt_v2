@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: application set up in local Postgres database
+    database: dbt_dev
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        description: the raw customer data
+        columns:
+          - name: id
+            description: primary key for the raw customer data
+            tests:
+              - unique
+              - not_null
+
+      - name: orders
+        description: the raw orders table
+        columns:
+          - name: id
+            description: primary key for the raw orders data
+            tests:
+              - unique              
+              - not_null
+
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}      

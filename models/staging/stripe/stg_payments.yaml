@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: stg_payments
+    description: would not want to go to stripe
+    columns:
+      - name: status
+        description: "{{ doc(\"payment_status\") }}"
+        meta:
+          dimension:
+            type: string
+      - name: payment_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: order_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: payment_method
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: amount
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: created_at
+        description: ""
+        meta:
+          dimension:
+            type: date

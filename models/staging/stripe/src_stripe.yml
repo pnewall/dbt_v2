@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: payment
+    description: would not want to go to stripe
+    database: dbt_dev
+    schema: stripe
+    tables:
+      - name: payment

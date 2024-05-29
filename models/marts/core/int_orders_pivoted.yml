@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: int_orders_pivoted
+    columns:
+      - name: order_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: bank_transfer_amount
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: credit_card_amount
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: coupon_amount
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: gift_card_amount
+        description: ""
+        meta:
+          dimension:
+            type: number

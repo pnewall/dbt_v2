@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('raw', 'raw_customers') }}
+    select * from {{ source('jaffle_shop', 'raw_customers') }}
 
 ),
 
@@ -8,8 +8,8 @@ customers as (
 
     select
         id as customer_id,
-        first_name,
-        last_name
+        split_part(name, ' ', 1) as first_name, 
+        split_part(name, ' ', 2) as last_name
 
     from source
 )

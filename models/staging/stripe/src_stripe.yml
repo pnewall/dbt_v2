@@ -1,9 +1,28 @@
 version: 2
 
 sources:
-  - name: payment
+  - name: stripe
     description: would not want to go to stripe
     database: pnpg4dbt
-    schema: stripe
+    schema: raw
     tables:
-      - name: payment
+      - name: raw_payments
+        description: the raw payments data
+        columns:
+          - name: id
+            description: primary key for the raw payments data
+            tests:
+              - unique
+              - not_null
+          - name: orderid
+            description: foreign key for orders
+            tests:
+              - not_null 
+          - name: paymentmethod
+            description: payment method
+          - name: status
+            description: status
+          - name: amount
+            description: amount
+          - name: created
+            description: date created

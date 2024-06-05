@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('raw', 'raw_orders') }}
+    select * from {{ source('jaffle_shop', 'raw_orders') }}
 
 ),
 
@@ -8,10 +8,13 @@ orders as (
 
     select
         id as order_id,
-        user_id as customer_id,
-        order_date,
-        status,
-        _etl_loaded_at as loaded_time
+        customer as customer_id,
+        ordered_at as order_date,
+        store_id,
+        subtotal,
+        tax_paid,
+        order_total,
+        status
 
     from source
 )

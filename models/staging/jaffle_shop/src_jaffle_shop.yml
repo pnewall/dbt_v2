@@ -14,7 +14,10 @@ sources:
             tests:
               - unique
               - not_null
-
+          - name: name
+            description: customer name
+            tests:
+              - not_null  
       - name: raw_orders
         description: the raw orders table
         columns:
@@ -23,8 +26,21 @@ sources:
             tests:
               - unique              
               - not_null
-
+          - name: customer
+            description: foreign key for customer
+            tests:            
+              - not_null
+          - name: ordered_at
+            description: timestamp
+          - name: store_id
+            description: foreign key for store
+          - name: subtotal
+            description: subtotal
+          - name: tax_paid
+            description: tax paid
+          - name: order_total
+            description: order total
         loaded_at_field: _etl_loaded_at
         freshness:
           warn_after: {count: 12, period: hour}
-          error_after: {count: 24, period: hour}      
+          error_after: {count: 24, period: hour}     

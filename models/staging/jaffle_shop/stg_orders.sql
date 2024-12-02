@@ -10,6 +10,7 @@ orders as (
         id as order_id,
         customer as customer_id,
         ordered_at as order_date,
+        cast({{ dbt.current_timestamp() }} as date) - cast(ordered_at as date) as days_since_ordered,
         store_id,
         subtotal,
         tax_paid,

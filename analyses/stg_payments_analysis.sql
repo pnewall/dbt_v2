@@ -24,5 +24,6 @@ payments as (
 select
     status,
     sum(amount)
-group by 1,
+from payments
+group by 1
 order by 2 desc

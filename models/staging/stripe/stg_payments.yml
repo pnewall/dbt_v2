@@ -5,6 +5,9 @@ models:
     columns:
       - name: id
         description: ""
+        tests:
+          - unique
+          - not_null
         meta:
           dimension:
             type: number

@@ -4,9 +4,9 @@ models:
     columns:
       - name: order_id
         description: ""
-          tests:
-            - unique
-            - not_null
+        tests:
+          - unique
+          - not_null
         meta:
           dimension:
             type: number

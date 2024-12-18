@@ -3,7 +3,7 @@ models:
   - name: stg_payments
     description: would not want to go to stripe
     columns:
-      - name: id
+      - name: payment_id
         description: ""
         tests:
           - unique

@@ -12,7 +12,9 @@ sources:
           - name: id
             description: primary key for the raw payments data
             tests:
-              - unique
+              - unique:
+                  config:
+                    severity: error
               - not_null
           - name: orderid
             description: foreign key for orders

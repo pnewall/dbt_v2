@@ -6,7 +6,9 @@ models:
       - name: payment_id
         description: ""
         tests:
-          - unique
+          - unique:
+              config: 
+                serverity: error
           - not_null
         meta:
           dimension:
@@ -16,11 +18,16 @@ models:
         meta:
           dimension:
             type: number
-      - name: paymentmethod
+      - name: payment_method
         description: ""
         meta:
           dimension:
             type: string
+        tests:
+          - accepted_values:
+              values: ['bank_transfer', 'credit_card', 'coupon']
+              config:
+                severity: warn
       - name: status
         description: "{{ doc(\"payment_status\") }}"
         meta:

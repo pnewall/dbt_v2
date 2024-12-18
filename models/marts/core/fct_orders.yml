@@ -28,3 +28,11 @@ models:
         tests:
           - average_dollars_spent_greater_than_one:
               group_by_column: customer_id
+          - dbt_utils.expression_is_true:
+              expression: " > 5"
+              config:
+                store_failures: true
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 5
+              row_condition: "order_id is not null"
+              strictly: True
